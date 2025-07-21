@@ -7,7 +7,7 @@ import json
 # title and description
 st.title("credit card fraud detection")
 st.write("please input the transaction details below to predict if it is fraudulent or not."
-"The model uses V1-V28 and Amount as input features, with V1-V28 defaulting to the average values from the dataset.")
+"The model uses V1-V28 as input features, with V1-V28 defaulting to the average values from the dataset.")
 
 # load model and Scaler
 @st.cache_resource
