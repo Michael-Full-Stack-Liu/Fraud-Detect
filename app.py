@@ -46,7 +46,7 @@ with st.form("transaction_form"):
     inputs['Hour'] = st.number_input("Hour of the day (0-23)", value=0, min_value=0, max_value=23)
     Is_Night = st.selectbox("Is it night time?(0-6)", options=["Yes", "No"], index=0)
     inputs['Is_Night'] = 1 if Is_Night == "Yes" else 0 #modify yes or no object to 1 or 0
-    inputs['Amount_scaled'] = scaler.transform(np.array([[inputs['Amount']]])) [0,0] # scale the Amount using the loaded scaler
+    inputs['Amount_Scaled'] = scaler.transform(np.array([[inputs['Amount']]])) [0,0] # scale the Amount using the loaded scaler
     Amount_high = st.selectbox("Is the transaction amount high(>=300)?", options=["Yes", "No"], index=0)  
     inputs['Amount_high'] = 1 if Amount_high == "Yes" else 0  # modify yes or no object to 1 or 0
     # submit button
