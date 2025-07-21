@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import json
 
 # title and description
 st.title("credit card fraud detection")
@@ -24,9 +25,10 @@ def load_scaler():
 # load default values for V1-V28 and Amount
 @st.cache_data
 def load_default_values():
-    data = pd.read_csv("creditcard.csv")
-    X = data.drop(columns=['Class', 'Time'])  # drop Class and Time columns
-    return X.mean().to_dict()  # return V1-V28 and mean value of Amount 
+    with open("X_mean.json", "r") as f:
+        data = json.load(f)  # load the mean values of V1-V28 and Amount
+    X = data  # drop Class and Time columns
+    return X  # return V1-V28 and mean value of Amount 
 
 # load model, Scaler and default values
 model = load_model()
